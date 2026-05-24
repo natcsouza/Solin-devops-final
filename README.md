@@ -326,13 +326,13 @@ Repositório:
 
 https://github.com/natcsouza/Solin-devops-final
 
-<img width="1920" height="1000" alt="github projeto" src="https://github.com/user-attachments/assets/1bdac38a-27cb-44cb-bf07-db80bdf6c7cb" />
+<img width="1919" height="999" alt="github projeto" src="https://github.com/user-attachments/assets/b8065024-60d1-428d-a3f9-1edb6d4322f8" />
 
 ---
 
 ## Vídeo Demonstração
 
-Inserir link:
+Link:
 
 
 O vídeo demonstra:
