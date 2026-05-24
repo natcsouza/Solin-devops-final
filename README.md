@@ -32,8 +32,8 @@ Rotas API
 HOW TO
 Evidências
 CRUD
-GitHub
 Vídeo
+Exclusão da Máquina Virtual
 Equipe
 
 ---
@@ -313,19 +313,10 @@ uid=1001(solinuser)
 
 ---
 
-## GitHub
-
-Repositório:
-
-https://github.com/natcsouza/Solin-devops-final
-
-<img width="1919" height="999" alt="github projeto" src="https://github.com/user-attachments/assets/b8065024-60d1-428d-a3f9-1edb6d4322f8" />
-
----
-
 ## Vídeo Demonstração
 
 Link:
+https://youtu.be/3EVevO13qqw?si=tAqXbd3_QwcPP7V6 
 
 
 O vídeo demonstra:
@@ -333,11 +324,15 @@ O vídeo demonstra:
 • Azure CLI
 • Docker Compose
 • Containers ativos
-• Usuário não root
+• Usuário não administrativo
 • Banco H2
 • Persistência
 • CRUD
 • API executando externamente na Azure
+
+---
+
+## Exclusão da Maquina Virtual
 
 ---
 
