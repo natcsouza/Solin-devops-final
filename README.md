@@ -23,7 +23,6 @@ Container Aplicação:
 
 Descrição Projeto
 Benefícios Negócio
-Desenho Arquitetura Java local → componente técnico da API
 Desenho Arquitetura Macro Azure → infraestrutura DevOps
 Fluxo da solução
 Infraestrutura Implantada
@@ -57,12 +56,6 @@ O projeto foi implantado integralmente em nuvem utilizando Máquina Virtual Linu
 • Escalabilidade em ambiente de nuvem
 • Redução de dependência de ambiente local
 • Containerização para simplificar distribuição
-
----
-
-## Desenho Arquitetura Java local → componente técnico da API
-
-<img width="1692" height="929" alt="Diagrama de arquitetura" src="https://github.com/user-attachments/assets/efcd9c15-de7c-4170-becc-3a4f434b4b7d" />
 
 ---
 
