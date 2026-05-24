@@ -1,252 +1,355 @@
-# SOLIN API — Monitoramento de Saúde de Pets
+<img width="2816" height="1536" alt="Gemini_Generated_Image_nq68rvnq68rvnq68" src="https://github.com/user-attachments/assets/a294b390-09a7-412a-87d8-b24b418ce00f" />
 
-> Sprint 1 — Java Advanced — FIAP
+# SOLIN DEVOPS — Monitoramento Preventivo de Saúde Pet
 
-API REST para monitoramento diário da saúde de pets, com geração automática de alertas baseados na frequência urinária. Faz parte do projeto **SOLIN**, que combina aplicativo mobile, backend Java/Spring Boot, banco de dados Oracle e um sensor IoT (ESP32 com sensor PIR) que detecta o uso de caixas de areia/tapetes higiênicos.
-
----
-
-## 📌 Problema que resolvemos
-
-Tutores de pets raramente mantêm um registro consistente da rotina diária do animal (urina, alimentação, hidratação). Sem esse histórico, o veterinário não consegue identificar padrões e o diagnóstico de problemas urinários, renais ou comportamentais fica prejudicado — especialmente em gatos, que escondem sintomas até estarem em estado avançado.
-
-A **SOLIN API** centraliza o registro desses eventos (manualmente pelo tutor ou automaticamente via sensor IoT) e dispara alertas quando a frequência foge do padrão da espécie.
+FIAP — DevOps Tools & Cloud Computing — 2TDSR — 2026
 
 ---
 
-## 🧱 Arquitetura
+## Integrantes
 
-```
-Mobile App ──┐
-             ├──► API REST (Spring Boot) ──► Oracle
-ESP32 IoT ──┘
-```
-
-A API segue arquitetura em camadas: **Controller → Service → Repository → Entity**, com DTOs separando a camada de transporte da de domínio.
-
-### Design Patterns utilizados
-
-| Padrão | Uso no projeto |
-|---|---|
-| **Repository** | Interfaces Spring Data JPA para acesso a dados |
-| **DTO** | Records separando request, response e entidade |
-| **Service** | Regras de negócio isoladas dos controllers |
-| **Builder** | Construção das entidades JPA (via Lombok `@Builder`) |
-| **Strategy** | Cada regra de alerta é uma classe que implementa `RegraAlertaStrategy`. Adicionar uma nova regra não exige alterar nenhum código existente |
+- Natalia Cristina de Souza - RM: 564099
+- Nickolas Davi Silva Souza - RM: 564105
+- Samara de Oliveira Vilela - RM: 566133
+- Rodrigo Carvalho Silva - RM: 565162
+- Otávio Ferreira Barreto Santos - RM: 565960
 
 ---
 
-## 🛠️ Stack
+## Containers Docker
+
+Container Aplicação:
+#SOLIN API
+
+Descrição Projeto
+Benefícios Negócio
+Desenho Arquitetura Java local → componente técnico da API
+Desenho Arquitetura Macro Azure → infraestrutura DevOps
+Fluxo da solução
+Infraestrutura Implantada
+Tecnologias Utilizadas
+Script Azure CLI
+Rotas API
+HOW TO
+Evidências
+CRUD
+GitHub
+Vídeo
+Equipe
+
+---
+
+## Descrição do Projeto
+
+SOLIN é uma solução tecnológica desenvolvida utilizando Java Spring Boot, Docker e Microsoft Azure para monitoramento preventivo da rotina pet.
+A solução disponibiliza APIs REST para gerenciamento de informações e utiliza banco H2 containerizado para persistência de dados.
+O projeto foi implantado integralmente em nuvem utilizando Máquina Virtual Linux na Azure, Docker Compose e containers independentes para aplicação e banco de dados.
+
+---
+
+# Benefícios para o Negócio
+
+- Centralização das informações
+- Persistência segura dos dados
+- Infraestrutura reproduzível
+- Padronização de implantação
+- API REST para integração entre serviços
+- Escalabilidade em ambiente de nuvem
+- Redução de dependência de ambiente local
+- Containerização para simplificar distribuição
+
+---
+
+## Desenho Arquitetura Java local → componente técnico da API
+
+<img width="1692" height="929" alt="Diagrama de arquitetura" src="https://github.com/user-attachments/assets/efcd9c15-de7c-4170-becc-3a4f434b4b7d" />
+
+---
+
+## Desenho Arquitetura Macro Azure → infraestrutura DevOps
+
+<img width="1536" height="1024" alt="Arquitetura Macro" src="https://github.com/user-attachments/assets/568c64b4-9ae9-4be1-ae26-9f955594848d" />
+
+---
+
+## Fluxo da solução:
+
+Usuário Externo
+↓
+IP Público Azure
+↓
+Azure Network Security Group
+↓
+VM Linux AlmaLinux 10.1
+↓
+Docker Engine
+↓
+Docker Compose
+↓
+SOLIN API (Spring Boot REST API)
+↓
+Banco H2 Containerizado
+↓
+Docker Volume Persistente
+
+---
+
+## Infraestrutura Implantada
+
+# Azure
+
+Resource Group:
+- vm-linux-free-group
+- Máquina Virtual:
+- AlmaLinux 10.1
+- Portas liberadas:
+
+NSG:
+- 22 SSH
+- 8080 REST API
+- 8082 H2 Console
+- 9092 H2 TCP
+
+---
+
+## Tecnologias Utilizadas
 
 - Java 17
-- Spring Boot 3.2.5
-- Spring Data JPA + Hibernate
-- Oracle 19c (produção / FIAP) e H2 (desenvolvimento local)
-- Bean Validation (Jakarta Validation)
-- SpringDoc OpenAPI 3 (Swagger)
-- Spring Cache (in-memory)
-- Lombok
-- Maven
+- Spring Boot
+- Docker
+- Docker Compose
+- Microsoft Azure
+- Banco H2
+- Swagger OpenAPI
+- GitHub
+- Azure CLI
+- AlmaLinux 10.1
 
 ---
 
-## ▶️ Como rodar
+## Script Azure CLI
 
-### Pré-requisitos
-- JDK 17+
-- Maven 3.8+ (ou use o `./mvnw` que vem no projeto, caso adicionado)
+<img width="1685" height="1001" alt="script Azure CLI" src="https://github.com/user-attachments/assets/823f2d9f-7192-446d-a6f6-dc6998f34ee7" />
 
-### Rodando em desenvolvimento (banco H2, sem precisar de VPN)
+---
+
+## Rotas da API
+
+Swagger:
+
+http://20.151.108.209:8080/solin/swagger-ui/index.html
+
+Principais rotas:
+
+GET
+/solin/api/pets
+
+POST
+/solin/api/pets
+
+PUT
+/solin/api/pets/{id}
+
+DELETE
+/solin/api/pets/{id}
+
+GET
+/solin/api/tutores
+
+POST
+/solin/api/tutores
+
+OBS:
+A documentação completa pode ser consultada pelo Swagger OpenAPI.
+
+---
+
+## HOW TO — Instalação da Solução
+
+# Clonar projeto
 
 ```bash
-mvn spring-boot:run
+git clone https://github.com/natcsouza/Solin-devops-final.git
 ```
 
-A aplicação sobe na porta **8080** com context path **/solin**.  
-URL base: `http://localhost:8080/solin`
+# Entrar diretório
 
-O perfil `dev` é o padrão. Ele já popula o banco com 3 espécies (Cão, Gato e Coelho) automaticamente.
-
-**Console do H2** (para inspecionar tabelas):
-- URL: http://localhost:8080/solin/h2
-- JDBC URL: `jdbc:h2:mem:solindb`
-- User: `sa` (sem senha)
-
-### Rodando contra Oracle FIAP
-
-1. Defina as variáveis de ambiente `DB_USER` e `DB_PASSWORD` com suas credenciais da FIAP (o `application-prod.properties` já as utiliza, sem expor senha no código).
-2. Suba com o perfil prod:
-   ```bash
-   mvn spring-boot:run -Dspring-boot.run.profiles=prod
-   ```
-
----
-
-## 📖 Documentação Swagger
-
-Com a aplicação rodando:
-
-- **UI:** http://localhost:8080/solin/swagger-ui.html
-- **JSON:** http://localhost:8080/solin/v3/api-docs
-
----
-
-## 📬 Coleção Postman
-
-Em `documentos/postman/SOLIN_API.postman_collection.json`. Importe no Postman e a coleção já vem com a variável `{{baseUrl}}` apontando para `http://localhost:8080/solin`.
-
-### Sequência sugerida de testes
-
-1. **Espécies** → `GET /api/especies` (devem aparecer Cão, Gato, Coelho)
-2. **Tutores** → `POST /api/tutores` (cadastrar Maria Silva)
-3. **Pets** → `POST /api/pets` (cadastrar Rex usando tutorId=1, especieId=1)
-4. **Eventos** → `POST /api/eventos` com `dataHora` antiga para disparar alerta
-5. **Alertas** → `GET /api/alertas/pet/1` (deve listar o alerta gerado)
-
----
-
-## 🚨 Regras de alerta (Strategy Pattern)
-
-Cada espécie tem um `horasMaximasSemUrinar` configurado (Cão = 8h, Gato = 24h, Coelho = 12h).
-
-| Regra | Quando dispara |
-|---|---|
-| `RegraSemUrinarAmarelo` | Entre `limite` e `2x limite` horas sem registro de urina |
-| `RegraSemUrinarVermelho` | A partir de `2x limite` horas |
-
-> **Como adicionar uma nova regra:** crie uma classe `@Component` que implemente `RegraAlertaStrategy`. O Spring injeta automaticamente no `AlertaService`. Nenhum código existente precisa ser alterado.
-
----
-
-## ✅ Requisitos atendidos (Sprint 1)
-
-- [x] Entidades JPA com relacionamentos (`@OneToMany`, `@ManyToOne`)
-- [x] API REST seguindo princípios RESTful (verbos HTTP, status codes, plural, Location header em POST)
-- [x] **Design Patterns**: Repository, DTO, Service, Builder, Strategy
-- [x] **Paginação** (`Pageable`, `Page<T>`)
-- [x] **Ordenação** (via `sort=campo,direcao` nos query params)
-- [x] **Busca com parâmetros** (filtros opcionais combinados em JPQL)
-- [x] **Cache** (`@Cacheable` / `@CacheEvict`)
-- [x] **Bean Validation** (`@NotBlank`, `@Email`, `@Pattern`, etc.)
-- [x] **Tratamento de exceções** (`@RestControllerAdvice` global)
-- [x] **DTOs** (records separados para request/response)
-- [x] **Swagger** (SpringDoc OpenAPI 3)
-- [x] **Coleção Postman** exportada
-- [x] Suporte a Oracle e H2 (perfis)
-- [x] Spring JPA Query Methods + JPQL
-
----
-
-## 📂 Estrutura do projeto
-
-```
-src/main/java/br/com/fiap/solin/
-├── config/         → OpenAPI, DataSeeder
-├── controller/     → 5 controllers REST
-├── dto/
-│   ├── request/    → DTOs de entrada com Bean Validation
-│   └── response/   → DTOs de saída
-├── entity/         → 5 entidades JPA
-├── enums/          → TipoEvento, NivelAlerta, etc.
-├── exception/      → Handler global + exceptions customizadas
-├── mapper/         → Conversão entity ↔ DTO
-├── repository/     → Spring Data JPA
-├── service/        → Regras de negócio
-└── strategy/       → Regras de alerta (Strategy Pattern)
+```bash
+cd Solin-devops-final
 ```
 
----
+# Banco Containerizado
 
-## 📸 Evidências de Testes
+```bash
+docker compose up -d
+```
 
-Os endpoints foram testados em **duas ferramentas**: Swagger UI e Postman, comprovando o funcionamento completo do CRUD e a persistência dos dados.
+```bash
+sudo docker ps
+```
 
-### Documentação Swagger
-![Swagger UI](documentos/Prints/swagger.png)
+```bash
+Imagem Docker utilizada:
+oscarfonts/h2
+```
 
-### Aplicação rodando
-![Aplicação rodando](documentos/Prints/aplicacao-crud.png)
-
----
-
-### Listar (GET)
-**Swagger:**
-![Swagger - listar](documentos/Prints/crud-get-lista.png)
-
-**Postman:**
-![Postman - listar espécies](documentos/Prints/postman-especie-lista.png)
+<img width="976" height="1005" alt="sudo docker ps" src="https://github.com/user-attachments/assets/f067b796-bc20-41bd-9152-c27c03938b95" />
 
 ---
 
-### Buscar por ID (GET)
-**Swagger:**
-![Swagger - buscar por id](documentos/Prints/get-api-especie-id.png)
+# Persistência Banco H2
 
-**Postman:**
-![Postman - buscar alerta por id](documentos/Prints/postman-alerta-id.png)
+Comando:
 
----
+```bash
+find /opt/h2-data -type f
+```
 
-### Cadastrar (POST)
-**Postman - Espécie:**
-![Postman - cadastrar espécie](documentos/Prints/postman-especie-post.png)
+Resultado esperado:
 
-**Postman - Tutor:**
-![Postman - cadastrar tutor](documentos/Prints/postman-tutor-post.png)
+```text
+solin.mv.db
 
-**Postman - Pet:**
-![Postman - cadastrar pet](documentos/Prints/postman-pet-post.png)
+solin.lock.db
+```
 
-**Postman - Evento:**
-![Postman - cadastrar evento](documentos/Prints/postman-evento-post.png)
+<img width="1514" height="998" alt="persistencia h2" src="https://github.com/user-attachments/assets/06bfdc95-035f-4985-b0c8-51657f04f450" />
 
 ---
 
-### Atualizar (PUT)
-**Swagger:**
-![Swagger - atualizar](documentos/Prints/put-crud.png)
+## Evidências Obrigatórias
+
+# Azure VM
+
+<img width="1917" height="1004" alt="vm-linux-free" src="https://github.com/user-attachments/assets/ebad27e7-9421-4fc5-b3dd-d55ff2137bed" />
 
 ---
 
-### Excluir (DELETE)
-**Swagger:**
-![Swagger - excluir](documentos/Prints/delete-crud.png)
+# Azure Network Security Group
 
-**Confirmação após exclusão (404 — recurso removido):**
-![Swagger - get após delete](documentos/Prints/get-no-id-apagado-no-delete.png)
+<img width="1920" height="1007" alt="nsg" src="https://github.com/user-attachments/assets/bd1ca1c9-9947-40d9-b6de-357ccab52c9b" />
 
 ---
 
-### Listagens complementares (Postman)
-**Listar Tutores:**
-![Postman - listar tutores](documentos/Prints/postman-tutor-lista.png)
+# Dockerfile
 
-**Listar Pets:**
-![Postman - listar pets](documentos/Prints/postman-pet-lista.png)
+<img width="1441" height="878" alt="Dockerfile" src="https://github.com/user-attachments/assets/6630f39e-3627-4201-8a3e-48ef62fab49b" />
 
-**Listar Eventos:**
-![Postman - listar eventos](documentos/Prints/postman-evento-lista.png)
+O script realiza:
 
-**Listar Alertas:**
-![Postman - listar alertas](documentos/Prints/postman-alerta-lista.png)
-
----
-
-### Tratamento de erros
-A API trata exceções de forma adequada, retornando status HTTP e mensagens claras.
-
-![Erro tratado](documentos/Prints/delete-crud-erro.png)
+- Provisionamento VM Linux Azure
+- Abertura de portas
+- Instalação Docker
+- Instalação Git
+- Instalação Nano
+- Preparação ambiente execução
 
 ---
 
-## 👥 Equipe
+# Usuário Sem Privilégio Administrativo
 
-| Nome | RM 
+Comando:
 
-| Natália Cristina | RM564099 
-| Nickolas Davi | RM564105 
-| Rodrigo Silva | RM565162 
-| Samara Vilela | RM566133 
-| Otávio Ferreira | RM565960 
+```bash
+docker exec -it solin-api whoami
+```
 
-Turma: **2TDSR** — FIAP — 2026
+Resultado esperado:
+
+```text
+solinuser
+```
+
+Comando:
+
+```bash
+docker exec -it solin-api id
+```
+
+Resultado esperado:
+
+```text
+uid=1001(solinuser)
+```
+
+<img width="1448" height="491" alt="usuário sem privilégio administrativo" src="https://github.com/user-attachments/assets/03b58f3e-7c51-45c0-9582-9d21f0feca39" />
+
+---
+
+# Docker Compose
+
+<img width="1920" height="1001" alt="docker compose - sudo h2 - oscarfontsh2" src="https://github.com/user-attachments/assets/18758692-f84e-4d84-8fd8-158fbd0c9523" />
+
+<img width="982" height="61" alt="docker compose 2" src="https://github.com/user-attachments/assets/f31b941e-cbf4-428f-bee7-5993a0d6187c" />
+
+---
+
+## CRUD Externo
+
+<img width="1919" height="1001" alt="Swagger aberto" src="https://github.com/user-attachments/assets/e89622ce-51dd-4d8b-8d36-7b5c891d7edd" />
+
+# CREATE (POST)
+
+<img width="1558" height="1000" alt="post tutor" src="https://github.com/user-attachments/assets/f3b0eb46-3437-4994-ba87-1af0616f41f7" />
+<img width="1408" height="1001" alt="post pets" src="https://github.com/user-attachments/assets/5925c214-c0eb-4de8-8e7f-7b0950a46067" />
+
+---
+
+# READ (GET)
+
+<img width="1380" height="998" alt="get list pets" src="https://github.com/user-attachments/assets/f4c04b9a-9a25-4fd8-b96d-166879933454" />
+<img width="1075" height="760" alt="get id pets" src="https://github.com/user-attachments/assets/0a879552-360f-497e-84f5-b7a3c15c5caa" />
+
+---
+
+# UPDATE (PUT)
+
+<img width="1379" height="1000" alt="put pets" src="https://github.com/user-attachments/assets/c40efbf9-db26-4a25-9561-bb7467e8a770" />
+
+---
+
+# DELETE (DELETE)
+
+<img width="1378" height="823" alt="delete pets" src="https://github.com/user-attachments/assets/c85ce401-0cd0-4ecd-a27e-ffbf231fec38" />
+
+---
+
+# READ (GET)
+
+<img width="1383" height="998" alt="get id pets após delete" src="https://github.com/user-attachments/assets/11269ec5-d37f-4934-bd91-e271d9030ed3" />
+
+---
+
+## GitHub
+
+Repositório:
+
+https://github.com/natcsouza/Solin-devops-final
+
+<img width="1920" height="1000" alt="github projeto" src="https://github.com/user-attachments/assets/1bdac38a-27cb-44cb-bf07-db80bdf6c7cb" />
+
+---
+
+## Vídeo Demonstração
+
+Inserir link:
+
+
+O vídeo demonstra:
+
+- Azure CLI
+- Docker Compose
+- Execução Background
+- Usuário não root
+- Banco H2
+- Persistência
+- CRUD
+- Execução externa Azure
+
+---
+
+## Equipe
+
+Turma:
+2TDSR
+FIAP — 2026
