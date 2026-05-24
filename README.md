@@ -316,7 +316,7 @@ uid=1001(solinuser)
 ## Vídeo Demonstração
 
 Link:
-https://youtu.be/3EVevO13qqw?si=tAqXbd3_QwcPP7V6 
+https://youtu.be/dy0WZUA8otQ?si=r15_n3lYRAtZ2HPA
 
 
 O vídeo demonstra:
@@ -333,6 +333,7 @@ O vídeo demonstra:
 ---
 
 ## Exclusão da Maquina Virtual
+<img width="1920" height="988" alt="exclusão vm e grupo de recursos" src="https://github.com/user-attachments/assets/494ff067-8c5b-4df3-b6ca-215274a0cc18" />
 
 ---
 
