@@ -49,14 +49,14 @@ O projeto foi implantado integralmente em nuvem utilizando Máquina Virtual Linu
 
 # Benefícios para o Negócio
 
-- Centralização das informações
-- Persistência segura dos dados
-- Infraestrutura reproduzível
-- Padronização de implantação
-- API REST para integração entre serviços
-- Escalabilidade em ambiente de nuvem
-- Redução de dependência de ambiente local
-- Containerização para simplificar distribuição
+• Centralização das informações
+• Persistência segura dos dados
+• Infraestrutura reproduzível
+• Padronização de implantação
+• API REST para integração entre serviços
+• Escalabilidade em ambiente de nuvem
+• Redução de dependência de ambiente local
+• Containerização para simplificar distribuição
 
 ---
 
@@ -99,31 +99,31 @@ Docker Volume Persistente
 # Azure
 
 Resource Group:
-- vm-linux-free-group
-- Máquina Virtual:
-- AlmaLinux 10.1
-- Portas liberadas:
+• vm-linux-free-group
+• Máquina Virtual:
+• AlmaLinux 10.1
+• Portas liberadas:
 
 NSG:
-- 22 SSH
-- 8080 REST API
-- 8082 H2 Console
-- 9092 H2 TCP
+• 22 SSH
+• 8080 REST API
+• 8082 H2 Console
+• 9092 H2 TCP
 
 ---
 
 ## Tecnologias Utilizadas
 
-- Java 17
-- Spring Boot
-- Docker
-- Docker Compose
-- Microsoft Azure
-- Banco H2
-- Swagger OpenAPI
-- GitHub
-- Azure CLI
-- AlmaLinux 10.1
+• Java 17
+• Spring Boot
+• Docker
+• Docker Compose
+• Microsoft Azure
+• Banco H2
+• Swagger OpenAPI
+• GitHub
+• Azure CLI
+• AlmaLinux 10.1
 
 ---
 
@@ -237,12 +237,12 @@ solin.lock.db
 
 O script realiza:
 
-- Provisionamento VM Linux Azure
-- Abertura de portas
-- Instalação Docker
-- Instalação Git
-- Instalação Nano
-- Preparação ambiente execução
+• Provisionamento VM Linux Azure
+• Abertura de portas
+• Instalação Docker
+• Instalação Git
+• Instalação Nano
+• Preparação ambiente execução
 
 ---
 
@@ -337,14 +337,14 @@ Link:
 
 O vídeo demonstra:
 
-- Azure CLI
-- Docker Compose
-- Execução Background
-- Usuário não root
-- Banco H2
-- Persistência
-- CRUD
-- Execução externa Azure
+• Azure CLI
+• Docker Compose
+• Containers ativos
+• Usuário não root
+• Banco H2
+• Persistência
+• CRUD
+• API executando externamente na Azure
 
 ---
 
