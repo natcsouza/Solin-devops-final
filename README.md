@@ -16,26 +16,37 @@ FIAP — DevOps Tools & Cloud Computing — 2TDSR — 2026
 
 ---
 
-## Containers Docker
-
-Container Aplicação:
 
 #SOLIN API
 
-Descrição Projeto
-Benefícios Negócio
-Desenho Arquitetura Macro Azure → infraestrutura DevOps
-Fluxo da solução
-Infraestrutura Implantada
-Tecnologias Utilizadas
-Script Azure CLI
-Rotas API
-HOW TO
-Evidências
-CRUD
-Vídeo
-Exclusão da Máquina Virtual
-Equipe
+• Descrição Projeto
+
+• Benefícios Negócio
+
+• Desenho Arquitetura Macro Azure → infraestrutura DevOps
+
+• Fluxo da solução
+
+• Infraestrutura Implantada
+
+• Tecnologias Utilizadas
+
+• Script Azure CLI
+
+• Rotas API
+
+• HOW TO
+
+• Evidências
+
+• CRUD
+
+• Vídeo
+
+• Exclusão da Máquina Virtual
+
+• Equipe
+
 
 ---
 
@@ -77,22 +88,39 @@ O projeto foi implantado integralmente em nuvem utilizando Máquina Virtual Linu
 ## Fluxo da solução:
 
 Usuário Externo
+
 ↓
+
 IP Público Azure
+
 ↓
+
 Azure Network Security Group
+
 ↓
+
 VM Linux AlmaLinux 10.1
+
 ↓
+
 Docker Engine
+
 ↓
+
 Docker Compose
+
 ↓
+
 SOLIN API (Spring Boot REST API)
+
 ↓
+
 Banco H2 Containerizado
+
 ↓
+
 Docker Volume Persistente
+
 
 ---
 
