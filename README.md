@@ -50,13 +50,21 @@ O projeto foi implantado integralmente em nuvem utilizando Máquina Virtual Linu
 # Benefícios para o Negócio
 
 • Centralização das informações
+
 • Persistência segura dos dados
+
 • Infraestrutura reproduzível
+
 • Padronização de implantação
+
 • API REST para integração entre serviços
+
 • Escalabilidade em ambiente de nuvem
+
 • Redução de dependência de ambiente local
+
 • Containerização para simplificar distribuição
+
 
 ---
 
